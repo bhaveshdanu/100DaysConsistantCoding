@@ -1,0 +1,69 @@
+public class StackingUsingLL {
+
+	static node top=null;
+	public static void main(String[] args) {
+		
+		add(1);
+		print();
+		add(2);
+		print();
+		add(3);
+		print();
+		delete();
+		print();
+	}
+	static void add(int data)
+	{
+		node n=new node(data);
+		System.out.println(data+" has been added to stack");
+		if(top==null)
+		{
+			top=n;
+			return;
+		}
+		n.next=top;
+		top=n;
+		return;
+	}
+	static void print()
+	{
+		node temp=top;
+		if(top==null)
+		{
+			System.out.println("Stack is empty");
+			return;
+		}
+		System.out.println("Stack:-");
+		System.out.println(" ---");
+		while(temp!=null)
+		{
+			System.out.println("| "+temp.data+" |");
+			temp=temp.next;
+		}
+		System.out.println(" ---");
+	}
+	static void delete()
+	{
+		if(top==null)
+		{
+			System.out.print("Nothing to delete");
+			return;
+		}
+		System.out.println("-----------------------------");
+		System.out.println("Top element has been deleted");
+		System.out.println("------------------------------");
+		top=top.next;
+		return;
+	}
+
+}
+class node
+{
+	int data;
+	node next;
+	node(int data)
+	{
+		this.data=data;
+		this.next=null;
+	}
+}
