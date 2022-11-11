@@ -1,0 +1,15 @@
+📌Task:
+
+Perform the Insertion Sort method for sorting the Array Elements.
+
+📌 Sample Input:
+
+Enter the size of array: 
+7
+Enter the array elements: 
+7 3 2 8 5 0 1
+
+📌 Sample Output:
+
+Sortted array: 
+0 1 2 3 5 7 8
