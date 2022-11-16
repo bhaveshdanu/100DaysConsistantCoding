@@ -1,0 +1,49 @@
+import java.io.*;
+import java.util.*;
+class Main {
+	public static void main (String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int T=sc.nextInt();
+		while(T-->0)
+		{
+		    Solution obj=new Solution();
+		    int N;
+		    
+		    //input N
+		    N=sc.nextInt();
+		    
+		    //calling printNos() methdo
+		    //of class Print
+		    obj.printNos(N);
+		    System.out.println();
+		    
+		}
+		
+	}
+}
+
+class Solution
+{
+
+  public void printNos(int n)
+    {
+        //Your code here
+        int p=1;
+        print(p,n);
+        
+    }
+    public void print(int f,int l)
+    {
+        if(l>=f)
+        {
+            System.out.print(f+" ");
+            print(f+1,l);
+        }
+        if(l<f)
+        {
+            return;
+        }
+        
+    }
+}
+
