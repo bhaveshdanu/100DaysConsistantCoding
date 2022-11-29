@@ -1,0 +1,46 @@
+import java.util.*;
+import java.util.Scanner;
+
+  public class longestString {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int t;
+
+        t = sc.nextInt();
+        for (int i = 0; i < t; i++) {
+            int n;
+            n = sc.nextInt();
+            String[] names = new String[n];
+
+            for (int j = 0; j < n; j++) names[j] = sc.next();
+
+            GFG obj = new GFG();
+            System.out.println(obj.longest(names, n));
+        }
+    }
+
+}
+class GFG {
+    String longest(String names[], int n) {
+        int max=0;
+        String maxName= names[0];
+        for(int i=1;i<n;i++)
+        {
+            String name= names[i];
+           
+            if(name.length()>maxName.length())
+            {
+                max=i;
+            }
+             maxName= names[max];
+        }
+        if(max!=0)
+        {
+            return maxName;
+        }
+        return maxName;
+        
+    }
+}
