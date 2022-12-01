@@ -1,0 +1,54 @@
+import java.io.*;
+import java.util.*;
+class GFG {
+	public static void main (String[] args) {
+	    
+	    //Taking input using class Scanner
+		Scanner sc=new Scanner(System.in);
+		
+		//Taking total count of testcases
+		int t=sc.nextInt();
+		sc.nextLine();
+		while(t-->0)
+		{
+		    
+		    int n,m;
+		    n=sc.nextInt();
+		   
+		    m=sc.nextInt();
+		    
+		    int a[]=new int[n];
+		    int b[]=new int[m];
+		 
+		    for(int i=0;i<n;i++)
+		    {
+		        a[i]=sc.nextInt();
+		    }
+		    
+		    for(int i=0;i<m;i++)
+		    {
+		        b[i]=sc.nextInt();
+		    }
+		    Solution ob=new Solution();
+
+		    System.out.println(ob.doUnion(a,n,b,m));
+		}
+		
+	}
+}
+
+class Solution{
+    public static int doUnion(int a[], int n, int b[], int m) 
+    {
+        HashSet<Integer> hs=new HashSet<>();
+        for(int x:a)
+        {
+            hs.add(x);
+        }
+        for(int x:b)
+        {
+            hs.add(x);
+        }
+        return hs.size();
+    }
+}
