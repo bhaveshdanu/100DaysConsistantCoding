@@ -1,0 +1,54 @@
+import java.io.*;
+import java.util.*;
+
+// Driver class
+class GFG {
+	public static void main (String[] args) throws IOException{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		int testcases = Integer.parseInt(br.readLine());
+		while(testcases-- > 0){
+		    int sizeOfArray = Integer.parseInt(br.readLine());
+		    int arr [] = new int[sizeOfArray];
+		    
+		    String line = br.readLine();
+		    String[] elements = line.trim().split("\\s+");
+		    for(int i = 0;i<sizeOfArray;i++){
+		        arr[i] =  Integer.parseInt(elements[i]);
+		    }
+		    
+		    int sizeOfArray_M = Integer.parseInt(br.readLine());
+		    int brr [] = new int[sizeOfArray_M];
+		    
+		    
+		    line = br.readLine();
+		    String[] ele = line.trim().split("\\s+");
+		    for(int i = 0;i<sizeOfArray_M;i++){
+		        brr[i] =  Integer.parseInt(ele[i]);
+		    }
+		    
+		    
+		    Solution obj = new Solution();
+		    long res = obj.find_multiplication(arr, brr, sizeOfArray, sizeOfArray_M);
+		    System.out.println(res);
+		}
+	}
+}
+class Solution{
+    public static long find_multiplication (int arr[], int brr[], int n, int m) {
+        // Complete the Function
+        PriorityQueue<Integer> pq=new PriorityQueue<>(Collections.reverseOrder());
+        PriorityQueue<Integer> pq1=new PriorityQueue<>();
+        for(int x:arr)
+        {
+            pq.add(x);
+        }
+        for(int x:brr)
+        {
+            pq1.add(x);
+        }
+        return pq.poll()*pq1.poll();
+    }
+    
+    
+}
