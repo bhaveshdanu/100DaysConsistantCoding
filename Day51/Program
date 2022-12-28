@@ -1,0 +1,69 @@
+import java.util.*;
+import java.io.*;
+import java.lang.*;
+
+class Driverclass
+{
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        int t= sc.nextInt();
+        
+        while(t-- >0)
+        {
+            //reading the string
+            String st = sc.next();
+            
+            //calling ispar method of Paranthesis class 
+            //and printing "balanced" if it returns true
+            //else printing "not balanced"
+            if(new Solution().ispar(st) == true)
+                System.out.println("balanced");
+            else
+                System.out.println("not balanced");
+        
+        }
+    }
+}
+class Solution
+{
+    static boolean ispar(String x)
+    {
+        // add your code here
+        Stack<Character> open=new Stack<>();
+        Stack<Character> close=new Stack<>();
+        for(int i=0;i<x.length();i++)
+        {
+            if(x.charAt(i)=='{'||x.charAt(i)=='('||x.charAt(i)=='[')
+            {
+                open.push(x.charAt(i));
+            }else  if(x.charAt(i)=='}'||x.charAt(i)==')'||x.charAt(i)==']')
+            {
+                close.push(x.charAt(i));
+            }
+            if(!open.isEmpty()&&!close.isEmpty())
+            {
+                if(open.peek()=='{'&&close.peek()=='}')
+                {
+                    open.pop();
+                    close.pop();
+                }
+                else if(open.peek()=='['&&close.peek()==']')
+                {
+                    open.pop();
+                    close.pop();
+                }
+                else if(open.peek()=='('&&close.peek()==')')
+                {
+                    open.pop();
+                    close.pop();
+                }
+            }
+        }
+        if(open.isEmpty()&&close.isEmpty())
+        {
+           return true; 
+        }
+        return false;
+    }
+}
